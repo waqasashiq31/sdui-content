@@ -101,7 +101,7 @@
                   "text": "Get Started",
                   "buttonStyle": "filled",
                   "shape": "rounded:24",
-                  "leadingIcon": "star",
+                  "leadingIcon": "ic_star",
                   "modifiers": [
                     { "kind": "width", "value": "fill" }
                   ],
@@ -129,9 +129,9 @@
             "containerColor": "primary",
             "contentColor": "onPrimary",
             "actions": [
-              { "icon": "search", "contentDescription": "Search", "tint": "onPrimary",
+              { "icon": "ic_search", "contentDescription": "Search", "tint": "onPrimary",
                 "action": { "type": "custom", "eventId": "open_search" } },
-              { "icon": "more", "contentDescription": "More", "tint": "onPrimary",
+              { "icon": "ic_more", "contentDescription": "More", "tint": "onPrimary",
                 "action": { "type": "custom", "eventId": "open_menu" } }
             ]
           },
@@ -141,9 +141,9 @@
             "containerColor": "surface",
             "selectedColor": "primary",
             "items": [
-              { "id": "tab_home",     "label": "Home",     "icon": "home",     "screenId": "tab_home" },
-              { "id": "tab_reports",  "label": "Reports",  "icon": "info",     "screenId": "tab_reports" },
-              { "id": "tab_settings", "label": "Settings", "icon": "settings", "screenId": "tab_settings" }
+              { "id": "tab_home",     "label": "Home",     "icon": "ic_home",     "screenId": "tab_home" },
+              { "id": "tab_reports",  "label": "Reports",  "icon": "ic_info",     "screenId": "tab_reports" },
+              { "id": "tab_settings", "label": "Settings", "icon": "ic_settings", "screenId": "tab_settings" }
             ]
           }
         }
@@ -233,7 +233,7 @@
                 {
                   "type": "action_chip",
                   "label": "Upload",
-                  "leadingIcon": "add",
+                  "leadingIcon": "ic_add",
                   "containerColor": "secondaryContainer",
                   "labelColor": "onSecondaryContainer",
                   "action": { "type": "custom", "eventId": "upload_clicked" }
@@ -241,7 +241,7 @@
                 {
                   "type": "action_chip",
                   "label": "Reports",
-                  "leadingIcon": "chart",
+                  "leadingIcon": "ic_chart",
                   "containerColor": "tertiaryContainer",
                   "labelColor": "onTertiaryContainer",
                   "action": { "type": "custom", "eventId": "reports_clicked" }
@@ -249,7 +249,7 @@
                 {
                   "type": "action_chip",
                   "label": "Help",
-                  "leadingIcon": "search",
+                  "leadingIcon": "ic_search",
                   "action": { "type": "custom", "eventId": "help_clicked" }
                 }
               ]
@@ -335,7 +335,7 @@
                   "headline":   { "type": "text", "text": "File uploaded", "fontStyle": "body_large" },
                   "supporting": { "type": "text", "text": "report_q1.pdf", "fontStyle": "body_small",
                                   "color": "onSurface", "modifiers": [{"kind":"alpha","value":0.7}] },
-                  "leading":    { "type": "icon", "name": "add", "tint": "primary" },
+                  "leading":    { "type": "icon", "name": "ic_add", "tint": "primary" },
                   "trailing":   { "type": "text", "text": "2h ago", "fontStyle": "label_small" },
                   "action": { "type": "custom", "eventId": "open_file" }
                 },
@@ -343,7 +343,7 @@
                   "type": "list_item",
                   "headline":   { "type": "text", "text": "Subscription renewed" },
                   "supporting": { "type": "text", "text": "Pro Plan", "fontStyle": "body_small" },
-                  "leading":    { "type": "icon", "name": "star", "tint": "tertiary" },
+                  "leading":    { "type": "icon", "name": "ic_star", "tint": "tertiary" },
                   "trailing":   { "type": "text", "text": "1d ago", "fontStyle": "label_small" },
                   "action": { "type": "navigate", "route": "subscription" }
                 },
@@ -352,7 +352,7 @@
                   "headline":   { "type": "text", "text": "Payment received" },
                   "supporting": { "type": "text", "text": "$49.99", "fontStyle": "body_small",
                                   "color": "primary", "fontWeight": "bold" },
-                  "leading":    { "type": "icon", "name": "info", "tint": "primary" },
+                  "leading":    { "type": "icon", "name": "ic_info", "tint": "primary" },
                   "trailing":   { "type": "text", "text": "3d ago", "fontStyle": "label_small" },
                   "action": { "type": "custom", "eventId": "open_payment" }
                 }
@@ -384,7 +384,7 @@
               "supporting": { "type": "text", "text": "Manage your profile",
                               "fontStyle": "body_small", "color": "onSurface",
                               "modifiers": [{"kind":"alpha","value":0.7}] },
-              "leading":    { "type": "icon", "name": "person", "tint": "primary" },
+              "leading":    { "type": "icon", "name": "ic_person", "tint": "primary" },
               "action": { "type": "custom", "eventId": "open_account" }
             },
             {
@@ -393,7 +393,7 @@
               "supporting": { "type": "text", "text": "Configure alerts",
                               "fontStyle": "body_small", "color": "onSurface",
                               "modifiers": [{"kind":"alpha","value":0.7}] },
-              "leading":    { "type": "icon", "name": "notifications", "tint": "primary" },
+              "leading":    { "type": "icon", "name": "ic_notifications", "tint": "primary" },
               "action": { "type": "custom", "eventId": "open_notifications" }
             },
             {
@@ -402,7 +402,7 @@
               "supporting": { "type": "text", "text": "Version 1.0",
                               "fontStyle": "body_small", "color": "onSurface",
                               "modifiers": [{"kind":"alpha","value":0.7}] },
-              "leading":    { "type": "icon", "name": "info", "tint": "primary" },
+              "leading":    { "type": "icon", "name": "ic_info", "tint": "primary" },
               "action": { "type": "custom", "eventId": "open_about" }
             }
           ]
