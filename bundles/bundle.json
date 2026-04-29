@@ -1,0 +1,477 @@
+{
+  "type": "bundle",
+  "startScreen": "onboarding",
+  "screens": {
+
+    "onboarding": {
+      "type": "screen",
+      "id": "onboarding",
+      "children": [
+        {
+          "type": "pager",
+          "showIndicator": true,
+          "indicatorPosition": "bottom",
+          "indicatorAlignment": "center",
+          "indicatorPadding": 24,
+          "indicatorActiveColor": "primary",
+          "indicatorInactiveColor": "outlineVariant",
+          "pages": [
+            {
+              "type": "column",
+              "verticalArrangement": "spacedBy:16",
+              "horizontalAlignment": "center",
+              "modifiers": [
+                { "kind": "fillMaxSize" },
+                { "kind": "padding", "all": 32 }
+              ],
+              "children": [
+                { "type": "spacer", "modifiers": [{ "kind": "height", "value": 80 }] },
+                {
+                  "type": "text",
+                  "text": "Welcome to SDUI",
+                  "fontStyle": "headline_large",
+                  "fontWeight": "bold",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "A server-driven UI library powered by Jetpack Compose.",
+                  "fontStyle": "body_large",
+                  "color": "onBackground",
+                  "textAlign": "center"
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "verticalArrangement": "spacedBy:16",
+              "horizontalAlignment": "center",
+              "modifiers": [
+                { "kind": "fillMaxSize" },
+                { "kind": "padding", "all": 32 }
+              ],
+              "children": [
+                { "type": "spacer", "modifiers": [{ "kind": "height", "value": 80 }] },
+                {
+                  "type": "text",
+                  "text": "Build screens with JSON",
+                  "fontStyle": "headline_large",
+                  "fontWeight": "bold",
+                  "color": "secondary",
+                  "textAlign": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "Update your app's UI without releasing a new version. Define screens declaratively on the server and the library renders them as native Compose UI.",
+                  "fontStyle": "body_medium",
+                  "color": "onBackground",
+                  "textAlign": "center"
+                }
+              ]
+            },
+            {
+              "type": "column",
+              "verticalArrangement": "spacedBy:16",
+              "horizontalAlignment": "center",
+              "modifiers": [
+                { "kind": "fillMaxSize" },
+                { "kind": "padding", "all": 32 }
+              ],
+              "children": [
+                { "type": "spacer", "modifiers": [{ "kind": "height", "value": 80 }] },
+                {
+                  "type": "text",
+                  "text": "You're all set",
+                  "fontStyle": "headline_large",
+                  "fontWeight": "bold",
+                  "color": "tertiary",
+                  "textAlign": "center"
+                },
+                {
+                  "type": "text",
+                  "text": "Tap below to enter the app.",
+                  "fontStyle": "body_large",
+                  "color": "onBackground",
+                  "textAlign": "center"
+                },
+                { "type": "spacer", "modifiers": [{ "kind": "height", "value": 24 }] },
+                {
+                  "type": "button",
+                  "text": "Get Started",
+                  "buttonStyle": "filled",
+                  "shape": "rounded:24",
+                  "leadingIcon": "star",
+                  "modifiers": [
+                    { "kind": "width", "value": "fill" }
+                  ],
+                  "action": { "type": "navigate", "route": "home" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "home": {
+      "type": "screen",
+      "id": "home",
+      "children": [
+        {
+          "type": "scaffold",
+          "containerColor": "background",
+          "topBar": {
+            "type": "top_app_bar",
+            "title": "Dashboard",
+            "subtitle": "Welcome back",
+            "navigationIcon": "",
+            "containerColor": "primary",
+            "contentColor": "onPrimary",
+            "actions": [
+              { "icon": "search", "contentDescription": "Search", "tint": "onPrimary",
+                "action": { "type": "custom", "eventId": "open_search" } },
+              { "icon": "more", "contentDescription": "More", "tint": "onPrimary",
+                "action": { "type": "custom", "eventId": "open_menu" } }
+            ]
+          },
+          "bottomBar": {
+            "type": "bottom_nav",
+            "startTab": "tab_home",
+            "containerColor": "surface",
+            "selectedColor": "primary",
+            "items": [
+              { "id": "tab_home",     "label": "Home",     "icon": "home",     "screenId": "tab_home" },
+              { "id": "tab_reports",  "label": "Reports",  "icon": "info",     "screenId": "tab_reports" },
+              { "id": "tab_settings", "label": "Settings", "icon": "settings", "screenId": "tab_settings" }
+            ]
+          }
+        }
+      ]
+    },
+
+    "tab_home": {
+      "type": "screen",
+      "id": "tab_home",
+      "children": [
+
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:4",
+          "modifiers": [{ "kind": "padding", "all": 16 }],
+          "children": [
+            { "type": "text", "text": "Welcome back, Waqas",
+              "fontStyle": "headline_medium", "fontWeight": "bold", "color": "onBackground"
+            },
+            { "type": "text", "text": "Here's today's summary",
+              "fontStyle": "body_medium", "color": "onBackground",
+              "modifiers": [{ "kind": "alpha", "value": 0.7 }] }
+          ]
+        },
+
+        {
+          "type": "card",
+          "shape": "rounded:16",
+          "containerColor": "primaryContainer",
+          "contentColor": "onPrimaryContainer",
+          "elevation": 2,
+          "contentPadding": 20,
+          "modifiers": [
+            { "kind": "padding", "horizontal": 16, "vertical": 8 }
+          ],
+          "children": [
+            {
+              "type": "row",
+              "horizontalArrangement": "spaceBetween",
+              "verticalAlignment": "center",
+              "children": [
+                {
+                  "type": "column",
+                  "verticalArrangement": "spacedBy:4",
+                  "modifiers": [{ "kind": "weight", "value": 1.0 }],
+                  "children": [
+                    { "type": "text", "text": "Pro Plan",
+                      "fontStyle": "title_medium", "fontWeight": "bold",
+                      "color": "onPrimaryContainer" },
+                    { "type": "text", "text": "Active until 12 May 2026",
+                      "fontStyle": "label_small", "color": "onPrimaryContainer",
+                      "modifiers": [{ "kind": "alpha", "value": 0.7 }] }
+                  ]
+                },
+                {
+                  "type": "button",
+                  "text": "Manage",
+                  "buttonStyle": "tonal",
+                  "shape": "rounded:20",
+                  "action": { "type": "navigate", "route": "subscription" }
+                }
+              ]
+            }
+          ]
+        },
+
+        { "type": "spacer", "modifiers": [{ "kind": "height", "value": 12 }] },
+
+        {
+          "type": "section",
+          "modifiers": [{ "kind": "padding", "horizontal": 16 }],
+          "title": {
+            "type": "text",
+            "text": "Quick Actions",
+            "fontStyle": "title_medium",
+            "fontWeight": "semibold",
+            "color": "onBackground",
+            "modifiers": [{ "kind": "padding", "vertical": 8 }]
+          },
+          "children": [
+            {
+              "type": "row",
+              "scrollable": true,
+              "horizontalArrangement": "spacedBy:8",
+              "verticalAlignment": "center",
+              "children": [
+                {
+                  "type": "action_chip",
+                  "label": "Upload",
+                  "leadingIcon": "add",
+                  "containerColor": "secondaryContainer",
+                  "labelColor": "onSecondaryContainer",
+                  "action": { "type": "custom", "eventId": "upload_clicked" }
+                },
+                {
+                  "type": "action_chip",
+                  "label": "Reports",
+                  "leadingIcon": "chart",
+                  "containerColor": "tertiaryContainer",
+                  "labelColor": "onTertiaryContainer",
+                  "action": { "type": "custom", "eventId": "reports_clicked" }
+                },
+                {
+                  "type": "action_chip",
+                  "label": "Help",
+                  "leadingIcon": "search",
+                  "action": { "type": "custom", "eventId": "help_clicked" }
+                }
+              ]
+            }
+          ]
+        },
+
+        { "type": "spacer", "modifiers": [{ "kind": "height", "value": 16 }] },
+
+        {
+          "type": "row",
+          "horizontalArrangement": "spacedBy:8",
+          "modifiers": [{ "kind": "padding", "horizontal": 16 }],
+          "children": [
+            {
+              "type": "box",
+              "contentAlignment": "center",
+              "modifiers": [
+                { "kind": "weight", "value": 1.0 },
+                { "kind": "height", "value": 96 },
+                { "kind": "clip", "shape": "rounded:12" },
+                { "kind": "background", "color": "primary", "shape": "rounded:12" }
+              ],
+              "children": [
+                { "type": "text", "text": "Padding outside",
+                  "fontStyle": "label_medium", "fontWeight": "bold", "color": "onPrimary" }
+              ]
+            },
+            {
+              "type": "box",
+              "contentAlignment": "center",
+              "modifiers": [
+                { "kind": "weight", "value": 1.0 },
+                { "kind": "height", "value": 96 },
+                { "kind": "background", "color": "secondary", "shape": "rounded:12" },
+                { "kind": "padding", "all": 12 }
+              ],
+              "children": [
+                { "type": "text", "text": "Padding inside",
+                  "fontStyle": "label_medium", "fontWeight": "bold", "color": "onSecondary",
+                  "textAlign": "center" }
+              ]
+            }
+          ]
+        }
+
+      ]
+    },
+
+    "tab_reports": {
+      "type": "screen",
+      "id": "tab_reports",
+      "children": [
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:12",
+          "modifiers": [{ "kind": "padding", "all": 16 }],
+          "children": [
+            { "type": "text", "text": "Reports",
+              "fontStyle": "headline_medium", "fontWeight": "bold", "color": "onBackground" },
+            { "type": "text", "text": "Your spending overview will appear here.",
+              "fontStyle": "body_medium", "color": "onBackground",
+              "modifiers": [{ "kind": "alpha", "value": 0.7 }] }
+          ]
+        },
+        {
+          "type": "section",
+          "title": {
+            "type": "text",
+            "text": "Recent Activity",
+            "fontStyle": "title_medium",
+            "fontWeight": "semibold",
+            "color": "onBackground",
+            "modifiers": [{ "kind": "padding", "horizontal": 16, "vertical": 8 }]
+          },
+          "children": [
+            {
+              "type": "list",
+              "showDividers": true,
+              "items": [
+                {
+                  "type": "list_item",
+                  "headline":   { "type": "text", "text": "File uploaded", "fontStyle": "body_large" },
+                  "supporting": { "type": "text", "text": "report_q1.pdf", "fontStyle": "body_small",
+                                  "color": "onSurface", "modifiers": [{"kind":"alpha","value":0.7}] },
+                  "leading":    { "type": "icon", "name": "add", "tint": "primary" },
+                  "trailing":   { "type": "text", "text": "2h ago", "fontStyle": "label_small" },
+                  "action": { "type": "custom", "eventId": "open_file" }
+                },
+                {
+                  "type": "list_item",
+                  "headline":   { "type": "text", "text": "Subscription renewed" },
+                  "supporting": { "type": "text", "text": "Pro Plan", "fontStyle": "body_small" },
+                  "leading":    { "type": "icon", "name": "star", "tint": "tertiary" },
+                  "trailing":   { "type": "text", "text": "1d ago", "fontStyle": "label_small" },
+                  "action": { "type": "navigate", "route": "subscription" }
+                },
+                {
+                  "type": "list_item",
+                  "headline":   { "type": "text", "text": "Payment received" },
+                  "supporting": { "type": "text", "text": "$49.99", "fontStyle": "body_small",
+                                  "color": "primary", "fontWeight": "bold" },
+                  "leading":    { "type": "icon", "name": "info", "tint": "primary" },
+                  "trailing":   { "type": "text", "text": "3d ago", "fontStyle": "label_small" },
+                  "action": { "type": "custom", "eventId": "open_payment" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    "tab_settings": {
+      "type": "screen",
+      "id": "tab_settings",
+      "children": [
+        {
+          "type": "column",
+          "modifiers": [{ "kind": "padding", "all": 16 }],
+          "children": [
+            { "type": "text", "text": "Settings",
+              "fontStyle": "headline_medium", "fontWeight": "bold", "color": "onBackground" }
+          ]
+        },
+        {
+          "type": "list",
+          "items": [
+            {
+              "type": "list_item",
+              "headline":   { "type": "text", "text": "Account" },
+              "supporting": { "type": "text", "text": "Manage your profile",
+                              "fontStyle": "body_small", "color": "onSurface",
+                              "modifiers": [{"kind":"alpha","value":0.7}] },
+              "leading":    { "type": "icon", "name": "person", "tint": "primary" },
+              "action": { "type": "custom", "eventId": "open_account" }
+            },
+            {
+              "type": "list_item",
+              "headline":   { "type": "text", "text": "Notifications" },
+              "supporting": { "type": "text", "text": "Configure alerts",
+                              "fontStyle": "body_small", "color": "onSurface",
+                              "modifiers": [{"kind":"alpha","value":0.7}] },
+              "leading":    { "type": "icon", "name": "notifications", "tint": "primary" },
+              "action": { "type": "custom", "eventId": "open_notifications" }
+            },
+            {
+              "type": "list_item",
+              "headline":   { "type": "text", "text": "About" },
+              "supporting": { "type": "text", "text": "Version 1.0",
+                              "fontStyle": "body_small", "color": "onSurface",
+                              "modifiers": [{"kind":"alpha","value":0.7}] },
+              "leading":    { "type": "icon", "name": "info", "tint": "primary" },
+              "action": { "type": "custom", "eventId": "open_about" }
+            }
+          ]
+        }
+      ]
+    },
+
+    "subscription": {
+      "type": "screen",
+      "id": "subscription",
+      "children": [
+        {
+          "type": "scaffold",
+          "containerColor": "background",
+          "topBar": {
+            "type": "top_app_bar",
+            "title": "Subscription",
+            "navigationIcon": "back",
+            "containerColor": "primary",
+            "contentColor": "onPrimary"
+          },
+          "content": {
+            "type": "column",
+            "verticalArrangement": "spacedBy:12",
+            "modifiers": [
+              { "kind": "padding", "all": 24 },
+              { "kind": "fillMaxSize" }
+            ],
+            "children": [
+              { "type": "text", "text": "Pro Plan",
+                "fontStyle": "headline_large", "fontWeight": "bold", "color": "primary" },
+              { "type": "text", "text": "$9.99 / month",
+                "fontStyle": "title_medium", "color": "onBackground" },
+              { "type": "text", "text": "Active until 12 May 2026",
+                "fontStyle": "label_medium", "color": "onBackground",
+                "modifiers": [{ "kind": "alpha", "value": 0.7 }] },
+
+              { "type": "spacer", "modifiers": [{ "kind": "height", "value": 16 }] },
+
+              {
+                "type": "card",
+                "shape": "rounded:12",
+                "containerColor": "secondaryContainer",
+                "contentPadding": 16,
+                "border": { "width": 1, "color": "outline", "shape": "rounded:12" },
+                "children": [
+                  { "type": "text", "text": "Includes",
+                    "fontStyle": "title_small", "fontWeight": "bold", "color": "onSecondaryContainer" },
+                  { "type": "spacer", "modifiers": [{ "kind": "height", "value": 8 }] },
+                  { "type": "text", "text": "• Unlimited uploads", "fontStyle": "body_small", "color": "onSecondaryContainer" },
+                  { "type": "text", "text": "• Advanced analytics", "fontStyle": "body_small", "color": "onSecondaryContainer" },
+                  { "type": "text", "text": "• Priority support",   "fontStyle": "body_small", "color": "onSecondaryContainer" }
+                ]
+              },
+
+              { "type": "spacer", "modifiers": [{ "kind": "height", "value": 24 }] },
+
+              {
+                "type": "button",
+                "text": "Cancel Subscription",
+                "buttonStyle": "outlined",
+                "shape": "rounded:24",
+                "modifiers": [{ "kind": "width", "value": "fill" }],
+                "action": { "type": "custom", "eventId": "cancel_subscription" }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
