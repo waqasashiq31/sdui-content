@@ -1,0 +1,437 @@
+{
+  "type": "bundle",
+  "startScreen": "home",
+  "screens": {
+
+    "home": {
+      "type": "screen",
+      "id": "home",
+      "children": [
+        {
+          "type": "scaffold",
+          "containerColor": "#F8F7FD",
+          "bottomBar": {
+            "type": "bottom_nav",
+            "startTab": "tab_home",
+            "containerColor": "#FFFFFF",
+            "contentColor": "#9E9E9E",
+            "selectedColor": "#6B54D2",
+            "items": [
+              { "id": "tab_home",         "label": "Home",         "icon": "ic_home",         "screenId": "tab_home" },
+              { "id": "tab_transactions", "label": "Transactions", "icon": "ic_transactions", "screenId": "tab_transactions" },
+              { "id": "tab_insights",     "label": "Insights",     "icon": "ic_chart",        "screenId": "tab_insights" },
+              { "id": "tab_settings",     "label": "Settings",     "icon": "ic_settings",     "screenId": "tab_settings" }
+            ]
+          }
+        }
+      ]
+    },
+
+    "tab_home": {
+      "type": "screen",
+      "id": "tab_home",
+      "children": [
+
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:24",
+          "horizontalAlignment": "start",
+          "modifiers": [
+            { "kind": "background", "color": "#6B54D2", "shape": "rounded:32" },
+            { "kind": "padding", "horizontal": 24, "vertical": 32 }
+          ],
+          "children": [
+            {
+              "type": "column",
+              "verticalArrangement": "spacedBy:4",
+              "children": [
+                { "type": "text", "text": "Good evening,", "fontSize": 14, "color": "#FFFFFF",
+                  "modifiers": [{ "kind": "alpha", "value": 0.8 }] },
+                { "type": "text", "text": "{{user.name}}", "fontSize": 18, "fontWeight": "medium", "color": "#FFFFFF" }
+              ]
+            },
+            {
+              "type": "column",
+              "verticalArrangement": "spacedBy:8",
+              "children": [
+                { "type": "text", "text": "TOTAL SPENT THIS MONTH", "fontSize": 14, "color": "#FFFFFF",
+                  "modifiers": [{ "kind": "alpha", "value": 0.8 }] },
+                { "type": "text", "text": "{{summary.total}}", "fontSize": 34, "fontWeight": "bold", "color": "#FFFFFF" },
+                { "type": "text", "text": "↑ {{summary.trend}}", "fontSize": 14, "color": "#FFFFFF",
+                  "modifiers": [{ "kind": "alpha", "value": 0.8 }] }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "row",
+          "horizontalArrangement": "spacedBy:8",
+          "modifiers": [{ "kind": "padding", "horizontal": 24, "vertical": 24 }],
+          "children": [
+            {
+              "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 16,
+              "modifiers": [{ "kind": "weight", "value": 1.0 }],
+              "children": [
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:6",
+                  "modifiers": [{ "kind": "width", "value": "fill" }],
+                  "children": [
+                    { "type": "icon", "name": "ic_add", "tint": "#1A1A1A",
+                      "modifiers": [{ "kind": "size", "width": 24, "height": 24 }] },
+                    { "type": "text", "text": "Add", "fontSize": 14, "color": "#6B6B6B", "textAlign": "center" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 16,
+              "modifiers": [{ "kind": "weight", "value": 1.0 }],
+              "children": [
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:6",
+                  "modifiers": [{ "kind": "width", "value": "fill" }],
+                  "children": [
+                    { "type": "icon", "name": "ic_scan", "tint": "#1A1A1A",
+                      "modifiers": [{ "kind": "size", "width": 24, "height": 24 }] },
+                    { "type": "text", "text": "Scan", "fontSize": 14, "color": "#6B6B6B", "textAlign": "center" }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 16,
+              "modifiers": [{ "kind": "weight", "value": 1.0 }],
+              "children": [
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:6",
+                  "modifiers": [{ "kind": "width", "value": "fill" }],
+                  "children": [
+                    { "type": "icon", "name": "ic_sync", "tint": "#1A1A1A",
+                      "modifiers": [{ "kind": "size", "width": 24, "height": 24 }] },
+                    { "type": "text", "text": "Sync", "fontSize": 14, "color": "#6B6B6B", "textAlign": "center" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:16",
+          "modifiers": [{ "kind": "padding", "horizontal": 24, "vertical": 16 }],
+          "children": [
+            { "type": "text", "text": "Insights", "fontSize": 16, "color": "#1A1A1A" },
+            {
+              "type": "row",
+              "scrollable": true,
+              "horizontalArrangement": "spacedBy:8",
+              "children": [
+                { "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 0,
+                  "modifiers": [{ "kind": "width", "value": 120 }],
+                  "children": [{
+                    "type": "column", "verticalArrangement": "spacedBy:8",
+                    "modifiers": [{ "kind": "padding", "horizontal": 20, "vertical": 24 }],
+                    "children": [
+                      { "type": "text", "text": "This Week", "fontSize": 10, "color": "#6B6B6B" },
+                      { "type": "text", "text": "{{insights.thisWeek}}", "fontSize": 14, "color": "#1A1A1A" }
+                    ]
+                  }]
+                },
+                { "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 0,
+                  "modifiers": [{ "kind": "width", "value": 120 }],
+                  "children": [{
+                    "type": "column", "verticalArrangement": "spacedBy:8",
+                    "modifiers": [{ "kind": "padding", "horizontal": 20, "vertical": 24 }],
+                    "children": [
+                      { "type": "text", "text": "Top Category", "fontSize": 10, "color": "#6B6B6B" },
+                      { "type": "text", "text": "{{insights.topCategory}}", "fontSize": 14, "color": "#1A1A1A" }
+                    ]
+                  }]
+                },
+                { "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 0,
+                  "modifiers": [{ "kind": "width", "value": 120 }],
+                  "children": [{
+                    "type": "column", "verticalArrangement": "spacedBy:8",
+                    "modifiers": [{ "kind": "padding", "horizontal": 20, "vertical": 24 }],
+                    "children": [
+                      { "type": "text", "text": "Budget Left", "fontSize": 10, "color": "#6B6B6B" },
+                      { "type": "text", "text": "{{insights.budgetLeft}}", "fontSize": 14, "color": "#1A1A1A" }
+                    ]
+                  }]
+                },
+                { "type": "card", "shape": "rounded:16", "containerColor": "#FFFFFF", "contentPadding": 0,
+                  "modifiers": [{ "kind": "width", "value": 120 }],
+                  "children": [{
+                    "type": "column", "verticalArrangement": "spacedBy:8",
+                    "modifiers": [{ "kind": "padding", "horizontal": 20, "vertical": 24 }],
+                    "children": [
+                      { "type": "text", "text": "Avg Daily", "fontSize": 10, "color": "#6B6B6B" },
+                      { "type": "text", "text": "{{insights.avgDaily}}", "fontSize": 14, "color": "#1A1A1A" }
+                    ]
+                  }]
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:16",
+          "modifiers": [{ "kind": "padding", "horizontal": 24, "vertical": 16 }],
+          "children": [
+            { "type": "text", "text": "Categories", "fontSize": 16, "color": "#1A1A1A" },
+            {
+              "type": "row",
+              "scrollable": true,
+              "horizontalArrangement": "spacedBy:8",
+              "verticalAlignment": "center",
+              "children": [
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:8",
+                  "modifiers": [{ "kind": "padding", "horizontal": 8 }],
+                  "children": [
+                    {
+                      "type": "box", "contentAlignment": "center",
+                      "modifiers": [
+                        { "kind": "size", "width": 40, "height": 40 },
+                        { "kind": "background", "color": "#FFF4ED", "shape": "rounded:20" }
+                      ],
+                      "children": [
+                        { "type": "icon", "name": "ic_food", "tint": "#F97316",
+                          "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                      ]
+                    },
+                    { "type": "text", "text": "Food", "fontSize": 10, "color": "#6B6B6B", "textAlign": "center" },
+                    { "type": "text", "text": "3.7k", "fontSize": 14, "color": "#1A1A1A", "textAlign": "center" }
+                  ]
+                },
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:8",
+                  "modifiers": [{ "kind": "padding", "horizontal": 8 }],
+                  "children": [
+                    {
+                      "type": "box", "contentAlignment": "center",
+                      "modifiers": [
+                        { "kind": "size", "width": 40, "height": 40 },
+                        { "kind": "background", "color": "#E6F4FE", "shape": "rounded:20" }
+                      ],
+                      "children": [
+                        { "type": "icon", "name": "ic_transport", "tint": "#0EA5E9",
+                          "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                      ]
+                    },
+                    { "type": "text", "text": "Transport", "fontSize": 10, "color": "#6B6B6B", "textAlign": "center" },
+                    { "type": "text", "text": "1.1K", "fontSize": 14, "color": "#1A1A1A", "textAlign": "center" }
+                  ]
+                },
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:8",
+                  "modifiers": [{ "kind": "padding", "horizontal": 8 }],
+                  "children": [
+                    {
+                      "type": "box", "contentAlignment": "center",
+                      "modifiers": [
+                        { "kind": "size", "width": 40, "height": 40 },
+                        { "kind": "background", "color": "#EEF2FF", "shape": "rounded:20" }
+                      ],
+                      "children": [
+                        { "type": "icon", "name": "ic_utilities", "tint": "#6366F1",
+                          "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                      ]
+                    },
+                    { "type": "text", "text": "Utilities", "fontSize": 10, "color": "#6B6B6B", "textAlign": "center" },
+                    { "type": "text", "text": "4.2K", "fontSize": 14, "color": "#1A1A1A", "textAlign": "center" }
+                  ]
+                },
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:8",
+                  "modifiers": [{ "kind": "padding", "horizontal": 8 }],
+                  "children": [
+                    {
+                      "type": "box", "contentAlignment": "center",
+                      "modifiers": [
+                        { "kind": "size", "width": 40, "height": 40 },
+                        { "kind": "background", "color": "#FDF2F8", "shape": "rounded:20" }
+                      ],
+                      "children": [
+                        { "type": "icon", "name": "ic_shopping", "tint": "#EC4899",
+                          "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                      ]
+                    },
+                    { "type": "text", "text": "Shopping", "fontSize": 10, "color": "#6B6B6B", "textAlign": "center" },
+                    { "type": "text", "text": "3.8K", "fontSize": 14, "color": "#1A1A1A", "textAlign": "center" }
+                  ]
+                },
+                {
+                  "type": "column", "horizontalAlignment": "center", "verticalArrangement": "spacedBy:8",
+                  "modifiers": [{ "kind": "padding", "horizontal": 8 }],
+                  "children": [
+                    {
+                      "type": "box", "contentAlignment": "center",
+                      "modifiers": [
+                        { "kind": "size", "width": 40, "height": 40 },
+                        { "kind": "background", "color": "#F5F3FF", "shape": "rounded:20" }
+                      ],
+                      "children": [
+                        { "type": "icon", "name": "ic_fun", "tint": "#8B5CF6",
+                          "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                      ]
+                    },
+                    { "type": "text", "text": "Fun", "fontSize": 10, "color": "#6B6B6B", "textAlign": "center" },
+                    { "type": "text", "text": "1.5K", "fontSize": 14, "color": "#1A1A1A", "textAlign": "center" }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:16",
+          "modifiers": [{ "kind": "padding", "horizontal": 24, "vertical": 16 }],
+          "children": [
+            {
+              "type": "row",
+              "horizontalArrangement": "spaceBetween",
+              "verticalAlignment": "center",
+              "children": [
+                { "type": "text", "text": "Recents", "fontSize": 16, "color": "#1A1A1A" },
+                { "type": "text", "text": "See all", "fontSize": 12, "color": "#6B54D2" }
+              ]
+            },
+            {
+              "type": "data_list",
+              "dataKey": "transactions",
+              "showDividers": false,
+              "emptyMessage": "No recent transactions",
+              "itemTemplate": {
+                "type": "card",
+                "shape": "rounded:24",
+                "containerColor": "#FFFFFF",
+                "contentPadding": 16,
+                "modifiers": [{ "kind": "padding", "vertical": 4 }],
+                "children": [
+                  {
+                    "type": "row",
+                    "horizontalArrangement": "spacedBy:12",
+                    "verticalAlignment": "center",
+                    "children": [
+                      {
+                        "type": "box", "contentAlignment": "center",
+                        "modifiers": [
+                          { "kind": "size", "width": 40, "height": 40 },
+                          { "kind": "background", "color": "{{item.iconBg}}", "shape": "rounded:20" }
+                        ],
+                        "children": [
+                          { "type": "icon", "name": "{{item.icon}}", "tint": "{{item.iconColor}}",
+                            "modifiers": [{ "kind": "size", "width": 20, "height": 20 }] }
+                        ]
+                      },
+                      {
+                        "type": "column",
+                        "verticalArrangement": "spacedBy:6",
+                        "modifiers": [{ "kind": "weight", "value": 1.0 }],
+                        "children": [
+                          { "type": "text", "text": "{{item.title}}", "fontSize": 16, "color": "#1A1A1A" },
+                          {
+                            "type": "row",
+                            "horizontalArrangement": "spacedBy:4",
+                            "children": [
+                              {
+                                "type": "box", "contentAlignment": "center",
+                                "modifiers": [
+                                  { "kind": "background", "color": "#F3F0FF", "shape": "rounded:24" },
+                                  { "kind": "padding", "horizontal": 8, "vertical": 4 }
+                                ],
+                                "children": [
+                                  { "type": "text", "text": "{{item.source}}", "fontSize": 10, "color": "#6B54D2" }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "column",
+                        "horizontalAlignment": "end",
+                        "verticalArrangement": "spacedBy:6",
+                        "children": [
+                          { "type": "text", "text": "From: {{item.from}}", "fontSize": 10, "color": "#6B6B6B" },
+                          { "type": "text", "text": "{{item.amount}}", "fontSize": 18, "fontWeight": "medium", "color": "#EF4444" }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+    "tab_transactions": {
+      "type": "screen",
+      "id": "tab_transactions",
+      "children": [
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:8",
+          "horizontalAlignment": "center",
+          "modifiers": [
+            { "kind": "fillMaxSize" },
+            { "kind": "padding", "all": 32 }
+          ],
+          "children": [
+            { "type": "text", "text": "Transactions", "fontSize": 24, "fontWeight": "bold", "color": "#1A1A1A" },
+            { "type": "text", "text": "Coming soon", "fontSize": 14, "color": "#6B6B6B" }
+          ]
+        }
+      ]
+    },
+
+    "tab_insights": {
+      "type": "screen",
+      "id": "tab_insights",
+      "children": [
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:8",
+          "horizontalAlignment": "center",
+          "modifiers": [
+            { "kind": "fillMaxSize" },
+            { "kind": "padding", "all": 32 }
+          ],
+          "children": [
+            { "type": "text", "text": "Insights", "fontSize": 24, "fontWeight": "bold", "color": "#1A1A1A" },
+            { "type": "text", "text": "Coming soon", "fontSize": 14, "color": "#6B6B6B" }
+          ]
+        }
+      ]
+    },
+
+    "tab_settings": {
+      "type": "screen",
+      "id": "tab_settings",
+      "children": [
+        {
+          "type": "column",
+          "verticalArrangement": "spacedBy:8",
+          "horizontalAlignment": "center",
+          "modifiers": [
+            { "kind": "fillMaxSize" },
+            { "kind": "padding", "all": 32 }
+          ],
+          "children": [
+            { "type": "text", "text": "Settings", "fontSize": 24, "fontWeight": "bold", "color": "#1A1A1A" },
+            { "type": "text", "text": "Coming soon", "fontSize": 14, "color": "#6B6B6B" }
+          ]
+        }
+      ]
+    }
+  }
+}
