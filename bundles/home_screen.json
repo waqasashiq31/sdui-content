@@ -37,6 +37,7 @@
           "verticalArrangement": "spacedBy:24",
           "horizontalAlignment": "start",
           "modifiers": [
+            { "kind": "width", "value": "fill" },
             { "kind": "background", "color": "#6B54D2", "shape": "rounded:32" },
             { "kind": "padding", "horizontal": 24, "vertical": 32 }
           ],
