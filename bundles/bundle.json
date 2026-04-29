@@ -160,7 +160,7 @@
           "verticalArrangement": "spacedBy:4",
           "modifiers": [{ "kind": "padding", "all": 16 }],
           "children": [
-            { "type": "text", "text": "Welcome back, Waqas",
+            { "type": "text", "text": "Welcome back, {{user.name}}",
               "fontStyle": "headline_medium", "fontWeight": "bold", "color": "onBackground"
             },
             { "type": "text", "text": "Here's today's summary",
@@ -190,10 +190,10 @@
                   "verticalArrangement": "spacedBy:4",
                   "modifiers": [{ "kind": "weight", "value": 1.0 }],
                   "children": [
-                    { "type": "text", "text": "Pro Plan",
+                    { "type": "text", "text": "{{subscription.plan}}",
                       "fontStyle": "title_medium", "fontWeight": "bold",
                       "color": "onPrimaryContainer" },
-                    { "type": "text", "text": "Active until 12 May 2026",
+                    { "type": "text", "text": "Active until {{subscription.expiry}}",
                       "fontStyle": "label_small", "color": "onPrimaryContainer",
                       "modifiers": [{ "kind": "alpha", "value": 0.7 }] }
                   ]
@@ -327,36 +327,20 @@
           },
           "children": [
             {
-              "type": "list",
+              "type": "data_list",
+              "dataKey": "transactions",
               "showDividers": true,
-              "items": [
-                {
-                  "type": "list_item",
-                  "headline":   { "type": "text", "text": "File uploaded", "fontStyle": "body_large" },
-                  "supporting": { "type": "text", "text": "report_q1.pdf", "fontStyle": "body_small",
-                                  "color": "onSurface", "modifiers": [{"kind":"alpha","value":0.7}] },
-                  "leading":    { "type": "icon", "name": "ic_add", "tint": "primary" },
-                  "trailing":   { "type": "text", "text": "2h ago", "fontStyle": "label_small" },
-                  "action": { "type": "custom", "eventId": "open_file" }
-                },
-                {
-                  "type": "list_item",
-                  "headline":   { "type": "text", "text": "Subscription renewed" },
-                  "supporting": { "type": "text", "text": "Pro Plan", "fontStyle": "body_small" },
-                  "leading":    { "type": "icon", "name": "ic_star", "tint": "tertiary" },
-                  "trailing":   { "type": "text", "text": "1d ago", "fontStyle": "label_small" },
-                  "action": { "type": "navigate", "route": "subscription" }
-                },
-                {
-                  "type": "list_item",
-                  "headline":   { "type": "text", "text": "Payment received" },
-                  "supporting": { "type": "text", "text": "$49.99", "fontStyle": "body_small",
-                                  "color": "primary", "fontWeight": "bold" },
-                  "leading":    { "type": "icon", "name": "ic_info", "tint": "primary" },
-                  "trailing":   { "type": "text", "text": "3d ago", "fontStyle": "label_small" },
-                  "action": { "type": "custom", "eventId": "open_payment" }
-                }
-              ]
+              "emptyMessage": "No recent activity",
+              "itemTemplate": {
+                "type": "list_item",
+                "headline":   { "type": "text", "text": "{{item.title}}", "fontStyle": "body_large" },
+                "supporting": { "type": "text", "text": "{{item.subtitle}}", "fontStyle": "body_small",
+                                "color": "onSurface", "modifiers": [{"kind":"alpha","value":0.7}] },
+                "leading":    { "type": "icon", "name": "{{item.icon}}", "tint": "primary" },
+                "trailing":   { "type": "text", "text": "{{item.time}}", "fontStyle": "label_small" },
+                "action": { "type": "custom", "eventId": "open_transaction",
+                            "payload": { "id": "{{item.id}}" } }
+              }
             }
           ]
         }
@@ -432,11 +416,11 @@
               { "kind": "fillMaxSize" }
             ],
             "children": [
-              { "type": "text", "text": "Pro Plan",
+              { "type": "text", "text": "{{subscription.plan}}",
                 "fontStyle": "headline_large", "fontWeight": "bold", "color": "primary" },
-              { "type": "text", "text": "$9.99 / month",
+              { "type": "text", "text": "{{subscription.price}} / month",
                 "fontStyle": "title_medium", "color": "onBackground" },
-              { "type": "text", "text": "Active until 12 May 2026",
+              { "type": "text", "text": "Active until {{subscription.expiry}}",
                 "fontStyle": "label_medium", "color": "onBackground",
                 "modifiers": [{ "kind": "alpha", "value": 0.7 }] },
 
